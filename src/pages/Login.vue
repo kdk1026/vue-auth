@@ -53,7 +53,7 @@ import { useStore } from "vuex";
         const { data } = await instance.post('/login', inputValue);
 
         if ( data.accessToken ) {
-            sessionStorage.setItem('accessToken', data.accessToken);
+            localStorage.setItem('accessToken', data.accessToken);
             router.push('/posts');
         }
 

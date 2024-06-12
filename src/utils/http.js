@@ -57,7 +57,7 @@ export const useAxios = () => {
 };
 
 const getToken = () => {
-    return sessionStorage.getItem('accessToken');
+    return localStorage.getItem('accessToken');
 };
 
 const isTokenExpired = (accessToken) => {
