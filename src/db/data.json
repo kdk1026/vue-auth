@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "title": "First Post",
+      "body": "First Content",
+      "id": 1
+    }
+  ],
+  "users": [
+    {
+      "email": "aaa@gmail.com",
+      "password": "$2a$10$7GV3H226h1P.Z2RDYFoM1OFrTf1afX5KKjRotzi.nZNb4KC1wD/KS",
+      "id": 1
+    }
+  ]
+}
