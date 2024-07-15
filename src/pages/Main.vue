@@ -2,7 +2,8 @@
     <div>
         <NavBar v-if="!accessToken" />
         <NavBar2 v-else />
-        <router-view></router-view>
+        <div v-if="pathname === '/'">홈 메인</div>
+        <router-view v-else></router-view>
     </div>
 </template>
 
@@ -12,6 +13,8 @@
     import { getToken } from "../utils/token";
 
     const accessToken = getToken();
+
+    const pathname = window.location.pathname;
 </script>
 
 <style scoped>

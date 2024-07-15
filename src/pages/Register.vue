@@ -1,6 +1,5 @@
 <template>
-    <span v-if="isLoading">로딩 중</span>
-    <div v-else>
+    <div>
         <!-- 컴포넌트로 하면 focus 이벤트 주기가... -->
         <input
             type="text"
@@ -25,15 +24,11 @@
 </template>
 
 <script setup>
-import { computed, ref } from "vue";
+import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { useAxios } from "../utils/http";
-import { useStore } from "vuex";
 
     const router = useRouter();
-    const store = useStore();
-
-    const isLoading = computed(() => store.getters['loading/getIsLoading']);
 
     const {instance} = useAxios();
 
