@@ -8,6 +8,15 @@
 <script setup>
 import { useStore } from "vuex";
 import { computed } from "vue";
+import { getToken } from "../utils/token";
+import { useRouter } from "vue-router";
+
+    const router = useRouter();
+
+    const accessToken = getToken();
+    if ( !accessToken ) {
+        router.push('/login');
+    }
 
     const store = useStore();
 
