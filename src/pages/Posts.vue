@@ -7,18 +7,16 @@
 </template>
 
 <script setup>
-import { useAxios } from "@/utils/http";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { fetchPosts } from "../apis/posts";
 
     const router = useRouter();
 
-    const {instance} = useAxios();
-
     const posts = ref([]);
 
-    const getPosts = async () => {
-        await instance.get('/posts')
+    const getPosts = () => {
+        fetchPosts()
         .then(res => {
             posts.value = res.data;
         })

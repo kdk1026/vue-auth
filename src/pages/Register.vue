@@ -26,11 +26,9 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import { useAxios } from "../utils/http";
+import { signup } from "../apis/signup";
 
     const router = useRouter();
-
-    const {instance} = useAxios();
 
     const emailModel = defineModel('emailModel');
     const passwordModel = defineModel('passwordModel');
@@ -45,7 +43,7 @@ import { useAxios } from "../utils/http";
             'password': passwordModel.value
         };
 
-        const { data } = await instance.post('/register', inputValue);
+        const { data } = await signup(inputValue);
 
         if ( data.accessToken ) {
             router.push('/login');

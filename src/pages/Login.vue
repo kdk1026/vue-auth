@@ -24,15 +24,13 @@
 </template>
 
 <script setup>
-import { useAxios } from "@/utils/http";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
+import { login } from "../apis/login";
 
     const router = useRouter();
     const store = useStore();
-
-    const {instance} = useAxios();
 
     const emailModel = defineModel('emailModel');
     const passwordModel = defineModel('passwordModel');
@@ -47,7 +45,7 @@ import { useStore } from "vuex";
             'password': passwordModel.value
         };
 
-        const { data } = await instance.post('/login', inputValue);
+        const { data } = await login(inputValue);
 
         if ( data.accessToken ) {
             localStorage.setItem('accessToken', data.accessToken);
